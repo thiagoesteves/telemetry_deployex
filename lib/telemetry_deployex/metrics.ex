@@ -13,7 +13,7 @@ defmodule TelemetryDeployex.Metrics do
         }
 
   defstruct name: "unknown",
-            version: Application.spec(:telemetry_deployex, :vsn) |> to_string,
+            version: Mix.Project.config()[:version],
             value: "",
             unit: "",
             info: "",
