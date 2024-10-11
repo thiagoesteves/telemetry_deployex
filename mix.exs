@@ -1,13 +1,16 @@
 defmodule TelemetryDeployex.MixProject do
   use Mix.Project
 
-  @version "0.1.0-rc2"
+  @version "0.1.0-rc3"
 
   def project do
     [
       app: :telemetry_deployex,
       version: @version,
       elixir: "~> 1.16",
+      name: "TelemetryDeployex",
+      source_url: "https://github.com/thiagoesteves/telemetry_deployex",
+      homepage_url: "https://github.com/thiagoesteves/telemetry_deployex",
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env()),
       preferred_cli_env: preferred_cli_env(),
@@ -30,7 +33,6 @@ defmodule TelemetryDeployex.MixProject do
 
   defp preferred_cli_env do
     [
-      docs: :docs,
       dialyzer: :test,
       format: :test
     ]
@@ -44,7 +46,15 @@ defmodule TelemetryDeployex.MixProject do
 
   defp package do
     [
-      files: ["lib", "priv", "mix.exs", "README.md", "LICENSE.md", ".formatter.exs"],
+      files: [
+        "lib",
+        "priv",
+        "mix.exs",
+        "README.md",
+        "LICENSE.md",
+        "CHANGELOG.md",
+        ".formatter.exs"
+      ],
       maintainers: ["Thiago Esteves"],
       licenses: ["MIT"],
       links: %{
@@ -58,10 +68,8 @@ defmodule TelemetryDeployex.MixProject do
   defp docs do
     [
       main: "TelemetryDeployex",
-      canonical: "http://hexdocs.pm/telemetry_deployex",
-      source_url: "https://github.com/thiagoesteves/telemetry_deployex",
-      homepage_url: "https://github.com/thiagoesteves/telemetry_deployex",
-      source_ref: "v#{@version}"
+      source_ref: "v#{@version}",
+      extras: ["README.md", "LICENSE.md", "CHANGELOG.md"]
     ]
   end
 
@@ -70,7 +78,7 @@ defmodule TelemetryDeployex.MixProject do
     [
       {:telemetry, "~> 0.4 or ~> 1.0"},
       {:telemetry_metrics, "~> 0.6 or ~> 1.0"},
-      {:ex_doc, "~> 0.20", only: :docs},
+      {:ex_doc, "~> 0.34", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0", only: :test, runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
