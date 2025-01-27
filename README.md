@@ -12,7 +12,7 @@ by adding `telemetry_deployex` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:telemetry_deployex, "~> 0.1.0"}
+    {:telemetry_deployex, "~> 0.1.0-rc4"}
   ]
 end
 ```

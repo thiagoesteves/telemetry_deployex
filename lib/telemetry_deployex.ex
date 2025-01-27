@@ -125,7 +125,7 @@ defmodule TelemetryDeployex do
       reporter: reporter
     }
 
-    :rpc.call(collector_node, Deployex.Telemetry.Collector, :collect_data, [event])
+    :rpc.call(collector_node, Deployex.Telemetry, :push_data, [event])
   end
 
   defp keep?(%{keep: nil}, _metadata), do: true

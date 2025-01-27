@@ -1,7 +1,7 @@
 defmodule TelemetryDeployex.MixProject do
   use Mix.Project
 
-  @version "0.1.0-rc3"
+  @version "0.1.0-rc4"
 
   def project do
     [
